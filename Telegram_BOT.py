@@ -8,7 +8,7 @@ client = TelegramClient("meal_reminder_bot", config.API_ID, config.API_HASH).sta
 reminder_times =[
     {"hour": 14, "minute": 0, "message": "It's time for the first meal!"},
     {"hour": 19, "minute": 0, "message": "It's time for the second meal!"},
-    {"hour": 20, "minute": 4, "message": "It's time for the night meal!"}
+    {"hour": 00, "minute": 0, "message": "It's time for the night meal!"}
 ]
 
 def get_next_reminder_time():
