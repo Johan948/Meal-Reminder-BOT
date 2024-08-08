@@ -6,9 +6,9 @@ import asyncio
 client = TelegramClient("meal_reminder_bot", config.API_ID, config.API_HASH).start(bot_token=config.BOT_TOKEN)
 
 reminder_times =[
-    {"hour": 14, "minute": 0, "message": "E timpul de luat micul dejun!"},
-    {"hour": 19, "minute": 0, "message": "E timpul de luat pranzul!"},
-    {"hour": 20, "minute": 4, "message": "E timpul pentru masa de noapte!"}
+    {"hour": 14, "minute": 0, "message": "It's time for the first meal!"},
+    {"hour": 19, "minute": 0, "message": "It's time for the second meal!"},
+    {"hour": 20, "minute": 4, "message": "It's time for the night meal!"}
 ]
 
 def get_next_reminder_time():
@@ -31,7 +31,7 @@ async def send_reminders(chat_id):
 
 @client.on(events.NewMessage(pattern="(?i)/start"))
 async def handler_start(event):
-    await event.respond("Salut! Iti voi aminti sa iai masa la 14, 19, 20:04.")
+    await event.respond("Hi! I will remind you to take the meals at 14:00, 19:00, 00:00.")
     asyncio.create_task(send_reminders(event.chat_id))
 
 
